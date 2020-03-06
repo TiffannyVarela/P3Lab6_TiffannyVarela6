@@ -14,3 +14,7 @@ Octal::Octal(string num):Numero(num){
 string Octal::toString(){
 	return num;
 }
+
+Octal::~Octal(){
+	cout<<"Octal Eliminado"<<endl;
+}

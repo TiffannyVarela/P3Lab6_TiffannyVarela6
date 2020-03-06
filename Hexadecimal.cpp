@@ -14,3 +14,7 @@ Hexadecimal::Hexadecimal(string num):Numero(num){
 string Hexadecimal::toString(){
 	return num;
 }
+
+Hexadecimal::~Hexadecimal(){
+	cout<<"Hexadecimal Eliminado"<<endl;
+}

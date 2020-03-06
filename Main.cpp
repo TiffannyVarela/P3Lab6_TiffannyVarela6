@@ -18,8 +18,6 @@ int main(int argc, char const *argv[])//inicio del main
 {
 	int opc=0, resp=-4;
 	string num;
-	//Numero* numero;
-	//vector<Numero*> numeros;
 
 	do{//inicio del do while
 
@@ -28,6 +26,7 @@ int main(int argc, char const *argv[])//inicio del main
 			case 1://inicio case 1
 				cout<<"Ingrese el numero: ";
 				cin>>num;
+				Validacion(num);
 				//numero = new Numero(num);
 				//numeros.push_back(numero);
 			break;//fin case 1
@@ -81,13 +80,22 @@ void Validacion(string num){
 	}
 	if (num.find("0x"))
 	{
-		/* code */
+		Hexadecimal* hex;
+		hex = new Hexadecimal(num);
+		numeros.push_back(hex);
+		delete hex;
 	}
 	if (num.find("0c"))
 	{
-		/* code */
+		Octal* oct;
+		oct = new Octal(num);
+		numeros.push_back(oct);
+		delete oct;
 	}
 	else{
-
+		Decimal* dec;
+		dec = new Decimal(num);
+		numeros.push_back(dec);
+		delete dec;
 	}
 }

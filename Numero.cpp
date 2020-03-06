@@ -12,3 +12,7 @@ Numero::Numero(string num){
 string Numero::toString(){
 	return " ";
 }
+
+Numero::~Numero(){
+	cout<<"Numero ELiminado";
+}

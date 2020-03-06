@@ -9,6 +9,6 @@ class Decimal: public Numero
 public:
 	Decimal();
 	Decimal(string);
-	virtual string toString();
+	string toString();
 	~Decimal();	
 };

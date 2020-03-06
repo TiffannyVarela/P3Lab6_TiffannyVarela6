@@ -14,3 +14,7 @@ Decimal::Decimal(string num):Numero(num){
 string Decimal::toString(){
 	return num;
 }
+
+Decimal::~Decimal(){
+	cout<<"Decimal Eliminado"<<endl;
+}

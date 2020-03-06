@@ -9,6 +9,6 @@ class Octal: public Numero
 public:
 	Octal();
 	Octal(string);
-	virtual string toString();
+	string toString();
 	~Octal();	
 };

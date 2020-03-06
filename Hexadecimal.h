@@ -9,6 +9,6 @@ class Hexadecimal: public Numero
 public:
 	Hexadecimal();
 	Hexadecimal(string);
-	virtual string toString();
+	string toString();
 	~Hexadecimal();	
 };

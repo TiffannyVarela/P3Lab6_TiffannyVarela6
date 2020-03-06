@@ -14,3 +14,7 @@ Binario::Binario(string num):Numero(num){
 string Binario::toString(){
 	return num;
 }
+
+Binario::~Binario(){
+	cout<<"Binario Eliminado"<<endl;
+}
