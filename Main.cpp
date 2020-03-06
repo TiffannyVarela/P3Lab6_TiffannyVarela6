@@ -12,7 +12,7 @@ using namespace std;
 int menu();//metodo menu
 void Validacion(string);
 	Numero* numero;
-	vector<Numero*> numeros;
+	vector<Numero*> numeros = vector<Numero*>();
 
 int main(int argc, char const *argv[])//inicio del main
 {
@@ -32,9 +32,17 @@ int main(int argc, char const *argv[])//inicio del main
 			break;//fin case 1
 
 			case 2://inicio case 2
-				for (int i = 0; i < numeros.size(); ++i)
+				if (!numeros.empty())
 				{
-					cout<<"Posicion "<<i<<": "<<numeros[i]->toString()<<endl;
+					for (int i = 0; i < numeros.size(); ++i)
+					{
+						if(numero[i]  Binario)
+							cout<<"Posicion "<<": ";
+						//cout<<numeros[i]->toString()<<endl;
+					}
+				}
+				else{
+					cout<<"El vector esta vacio"<<endl;
 				}
 			break;//fin case 2
 
@@ -43,7 +51,7 @@ int main(int argc, char const *argv[])//inicio del main
 
 		}//fin switch
 
-		cout<<"Desea volver?\n 1.Si\n2.No\n:";
+		cout<<"Desea volver?\n1.Si\n2.No\n:";
 		cin>>resp;
 
 	}while(resp!=2);//fin del do while
@@ -71,12 +79,31 @@ int menu(){//inicio metodo menu
 }//fin metodo menu
 
 void Validacion(string num){
-	if (num.find("b"))
+	int resp=-1;
+	size_t foundbi = num.find("b");
+	size_t foundhex = num.find("0x");
+	size_t foundoc = num.find("0c");
+	//vector<char> v;
+	cout<<"tam "<<num.size()<<endl;
+	cout<<"Pos "<<foundhex<<endl;
+
+	if (foundbi==num.size()-1)
 	{
-		Binario* bin;
-		bin = new Binario(num);
-		numeros.push_back(bin);
-		delete bin;
+		for (int i = 0; i < num.size(); ++i)
+		{
+			if(num[i]!='0' && num[i]!='1' && num[i] !='b'){
+				resp=2;
+			}
+		}
+		if(resp==-1){
+			Binario* bin;
+			bin = new Binario(num);
+			numeros.push_back(bin);
+			delete bin;
+		}
+		else{
+			cout<<"El numero no es binario"<<endl;
+		}
 	}
 	if (num.find("0x"))
 	{

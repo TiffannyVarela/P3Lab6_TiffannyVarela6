@@ -14,5 +14,4 @@ string Numero::toString(){
 }
 
 Numero::~Numero(){
-	cout<<"Numero ELiminado";
 }

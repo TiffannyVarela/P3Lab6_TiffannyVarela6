@@ -8,7 +8,7 @@ Binario::Binario():Numero(){
 }
 
 Binario::Binario(string num):Numero(num){
-	this->num=num;
+	//this->num=num;
 }
 
 string Binario::toString(){
