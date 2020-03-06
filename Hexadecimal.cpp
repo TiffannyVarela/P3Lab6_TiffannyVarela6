@@ -4,9 +4,7 @@
 #include <iostream>
 using namespace std;
 
-Hexadecimal::Hexadecimal():Numero(){}
-
-Hexadecimal::Hexadecimal():Numero(string num){
+Hexadecimal::Hexadecimal():Numero(num){
 	this->num=num;
 }
 
