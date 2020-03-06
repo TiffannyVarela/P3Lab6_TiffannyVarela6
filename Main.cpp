@@ -36,7 +36,7 @@ int main(int argc, char const *argv[])//inicio del main
 				{
 					for (int i = 0; i < numeros.size(); ++i)
 					{
-						if(numero[i]  Binario)
+						//if(numero[i]  Binario)
 							cout<<"Posicion "<<": ";
 						//cout<<numeros[i]->toString()<<endl;
 					}
@@ -85,7 +85,7 @@ void Validacion(string num){
 	size_t foundoc = num.find("0c");
 	//vector<char> v;
 	cout<<"tam "<<num.size()<<endl;
-	cout<<"Pos "<<foundhex<<endl;
+	cout<<"Pos "<<foundoc<<endl;
 
 	if (foundbi==num.size()-1)
 	{
@@ -105,20 +105,46 @@ void Validacion(string num){
 			cout<<"El numero no es binario"<<endl;
 		}
 	}
-	if (num.find("0x"))
+	
+	if (foundhex==0)
 	{
-		Hexadecimal* hex;
-		hex = new Hexadecimal(num);
-		numeros.push_back(hex);
-		delete hex;
+		for (int i = 0; i < num.size(); ++i)
+		{
+			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7' && num[i] !='8' && num[i]!='9' && num[i]!='A' && num[i] !='B' && num[i]!='C' && num[i]!='D' && num[i] !='E' && num[i]!='F'){
+				resp=2;
+			}
+		}
+		if(resp==-1){
+			Hexadecimal* hex;
+			hex = new Hexadecimal(num);
+			numeros.push_back(hex);
+			delete hex;
+		}
+		else{
+			cout<<"El numero no es hexadecimal"<<endl;
+		}
 	}
-	if (num.find("0c"))
+
+	if (foundoc==0)
 	{
-		Octal* oct;
-		oct = new Octal(num);
-		numeros.push_back(oct);
-		delete oct;
+		for (int i = 0; i < num.size(); ++i)
+		{
+			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7'){
+				resp=2;
+			}
+		}
+		if(resp==-1){
+			Octal* oct;
+			oct = new Octal(num);
+			numeros.push_back(oct);
+			delete oct;
+		}
+		else{
+			cout<<"El numero no es hexadecimal"<<endl;
+		}
 	}
+
+	
 	else{
 		Decimal* dec;
 		dec = new Decimal(num);
