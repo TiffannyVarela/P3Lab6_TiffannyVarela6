@@ -13,6 +13,7 @@ int menu();//metodo menu
 void Validacion(string);
 	Numero* numero;
 	vector<Numero*> numeros = vector<Numero*>();
+int menuOperaciones();
 
 int main(int argc, char const *argv[])//inicio del main
 {
@@ -36,9 +37,8 @@ int main(int argc, char const *argv[])//inicio del main
 				{
 					for (int i = 0; i < numeros.size(); ++i)
 					{
-						//if(numero[i]  Binario)
-							cout<<"Posicion "<<": ";
-						//cout<<numeros[i]->toString()<<endl;
+							
+							//cout<<numeros[i]->toString()<<endl;
 					}
 				}
 				else{
@@ -78,14 +78,32 @@ int menu(){//inicio metodo menu
         return 0;
 }//fin metodo menu
 
+int menuOperaciones(){//inicio metodo menu
+    while(true){
+        cout<<"MENU"<<endl
+        <<"1.- Suma"<<endl
+        <<"2.- Resta"<<endl
+		<<"3.- Multiplicacion"<<endl;
+        cout<<"Ingrese una opcion: ";
+        int opcion =0;
+        cin>>opcion;
+        if(opcion>=1 && opcion<= 3){
+                return opcion;
+        }
+		else{
+        	cout<<"La opcion elegida no es valida, ingrese una opcion entre 1 y 3"<<endl;
+        }
+ 	}//end del while
+        return 0;
+}//fin metodo menu
+
 void Validacion(string num){
 	int resp=-1;
 	size_t foundbi = num.find("b");
 	size_t foundhex = num.find("0x");
 	size_t foundoc = num.find("0c");
-	//vector<char> v;
-	cout<<"tam "<<num.size()<<endl;
-	cout<<"Pos "<<foundoc<<endl;
+	//cout<<"tam "<<num.size()<<endl;
+	//cout<<"Pos "<<foundoc<<endl;
 
 	if (foundbi==num.size()-1)
 	{
@@ -144,11 +162,22 @@ void Validacion(string num){
 		}
 	}
 
-	
+
 	else{
-		Decimal* dec;
-		dec = new Decimal(num);
-		numeros.push_back(dec);
-		delete dec;
+		for (int i = 0; i < num.size(); ++i)
+		{
+			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7' && num[i]!='8' && num[i]!='9'){
+				resp=2;
+			}
+		}
+		if(resp==-1){
+			Decimal* dec;
+			dec = new Decimal(num);
+			numeros.push_back(dec);
+			delete dec;
+		}
+		else{
+			cout<<"El numero no es decimal"<<endl;
+		}
 	}
 }
