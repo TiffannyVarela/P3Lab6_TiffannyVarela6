@@ -5,8 +5,8 @@ using namespace std;
 
 Numero::Numero(){}
 
-Numero::Numero(string num){
-	this->num=num;
+Numero::Numero(string cnum){
+	this->num=cnum;
 }
 
 string Numero::toString(){

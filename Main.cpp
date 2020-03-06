@@ -38,7 +38,7 @@ int main(int argc, char const *argv[])//inicio del main
 					for (int i = 0; i < numeros.size(); ++i)
 					{
 							
-							//cout<<numeros[i]->toString()<<endl;
+							cout<<"Posicion "<<i<<": "<<numeros[i]->toString()<<endl;
 					}
 				}
 				else{
@@ -117,7 +117,9 @@ void Validacion(string num){
 			Binario* bin;
 			bin = new Binario(num);
 			numeros.push_back(bin);
-			delete bin;
+			cout << bin->toString() <<endl;
+			cout << numeros[numeros.size()-1]->toString() <<endl;
+			
 		}
 		else{
 			cout<<"El numero no es binario"<<endl;
@@ -136,7 +138,6 @@ void Validacion(string num){
 			Hexadecimal* hex;
 			hex = new Hexadecimal(num);
 			numeros.push_back(hex);
-			delete hex;
 		}
 		else{
 			cout<<"El numero no es hexadecimal"<<endl;
@@ -155,7 +156,6 @@ void Validacion(string num){
 			Octal* oct;
 			oct = new Octal(num);
 			numeros.push_back(oct);
-			delete oct;
 		}
 		else{
 			cout<<"El numero no es hexadecimal"<<endl;
@@ -174,7 +174,6 @@ void Validacion(string num){
 			Decimal* dec;
 			dec = new Decimal(num);
 			numeros.push_back(dec);
-			delete dec;
 		}
 		else{
 			cout<<"El numero no es decimal"<<endl;

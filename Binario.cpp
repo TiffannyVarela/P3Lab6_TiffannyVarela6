@@ -7,12 +7,12 @@ using namespace std;
 Binario::Binario():Numero(){
 }
 
-Binario::Binario(string num):Numero(num){
-	//this->num=num;
+Binario::Binario(string cnum):Numero(cnum){
+	this->num=cnum;
 }
 
 string Binario::toString(){
-	return num;
+	return this->num;
 }
 
 Binario::~Binario(){
