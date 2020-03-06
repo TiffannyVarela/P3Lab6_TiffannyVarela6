@@ -10,12 +10,16 @@
 using namespace std;
 
 int menu();//metodo menu
+void Validacion(string);
+	Numero* numero;
+	vector<Numero*> numeros;
 
 int main(int argc, char const *argv[])//inicio del main
 {
 	int opc=0, resp=-4;
 	string num;
-	vector<Numero> numeros;
+	//Numero* numero;
+	//vector<Numero*> numeros;
 
 	do{//inicio del do while
 
@@ -24,7 +28,8 @@ int main(int argc, char const *argv[])//inicio del main
 			case 1://inicio case 1
 				cout<<"Ingrese el numero: ";
 				cin>>num;
-				numeros.push_back(num);
+				//numero = new Numero(num);
+				//numeros.push_back(numero);
 			break;//fin case 1
 
 			case 2://inicio case 2
@@ -65,3 +70,24 @@ int menu(){//inicio metodo menu
  	}//end del while
         return 0;
 }//fin metodo menu
+
+void Validacion(string num){
+	if (num.find("b"))
+	{
+		Binario* bin;
+		bin = new Binario(num);
+		numeros.push_back(bin);
+		delete bin;
+	}
+	if (num.find("0x"))
+	{
+		/* code */
+	}
+	if (num.find("0c"))
+	{
+		/* code */
+	}
+	else{
+
+	}
+}

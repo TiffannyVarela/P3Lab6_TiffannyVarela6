@@ -4,7 +4,10 @@
 #include <iostream>
 using namespace std;
 
-Binario::Binario():Numero(num){
+Binario::Binario():Numero(){
+}
+
+Binario::Binario(string num):Numero(num){
 	this->num=num;
 }
 

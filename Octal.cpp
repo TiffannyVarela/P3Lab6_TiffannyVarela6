@@ -4,7 +4,10 @@
 #include <iostream>
 using namespace std;
 
-Octal::Octal():Numero(num){
+Octal::Octal():Numero(){
+}
+
+Octal::Octal(string num):Numero(num){
 	this->num=num;
 }
 

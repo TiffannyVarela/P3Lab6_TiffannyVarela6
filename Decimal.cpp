@@ -4,7 +4,10 @@
 #include <iostream>
 using namespace std;
 
-Decimal::Decimal():Numero(num){
+Decimal::Decimal():Numero(){
+}
+
+Decimal::Decimal(string num):Numero(num){
 	this->num=num;
 }
 
