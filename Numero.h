@@ -7,10 +7,10 @@ class Numero
 {
 protected:
 	string num;
-public:
 	Numero();
 	Numero(string);
-	virtual string toString() = "";
+public:
+	virtual string toString()=0;
 	~Numero();
 	
 };
