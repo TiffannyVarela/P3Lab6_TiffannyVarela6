@@ -12,6 +12,9 @@ public:
 	string toString();
 	string getNumero();
 	int entero();
+	/*Numero* Suma(int, int);
+	Numero* Resta(int, int);
+	Numero* Mult(int, int);*/
 	~Decimal();	
 };
 

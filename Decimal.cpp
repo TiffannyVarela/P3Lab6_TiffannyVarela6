@@ -28,6 +28,25 @@ int Decimal::entero(){
 	return retorno;
 }
 
+/*Numero* Numero::Suma(int num1, int num2){
+	Numero* x;
+	int suma=num1+num2;
+	x = new Decimal(to_string(suma));
+	return x;
+}
+Numero* Numero::Resta(int num1, int num2){
+	Numero* x;
+	int suma=num1+num2;
+	x = new Decimal(to_string(suma));
+	return x;
+}
+Numero* Numero::Mult(int num1, int num2){
+	Numero* x;
+	int suma=num1+num2;
+	x = new Decimal(to_string(suma));
+	return x;
+}*/
+
 Decimal::~Decimal(){
 	cout<<"Decimal Eliminado"<<endl;
 }

@@ -12,5 +12,9 @@ public:
 	string getNumero();
 	string toString();
 	int entero();
+	//Binario* operator +(int, int);
+	/*virtual Numero* Suma(int, int);
+	virtual Numero* Resta(int, int);
+	virtual Numero* Mult(int, int);*/
 	~Binario();	
 };

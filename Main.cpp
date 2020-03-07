@@ -16,11 +16,14 @@ void Validacion(string);
 int menuOperaciones();
 void printVector();
 
+string tipo(int);
+
 int main(int argc, char const *argv[])//inicio del main
 {
 	int opc=0, resp=-4;
 	string num;
 	int pos1,pos2;
+	int num1, num2;
 
 	do{//inicio del do while
 
@@ -52,6 +55,11 @@ int main(int argc, char const *argv[])//inicio del main
 						cout<<"\nIngrese la posicion del segundo numero: ";
 						cin>>pos2;
 					}
+					/*if (tipo(pos1=="Binario"))
+					{
+						num1=numeros[pos1]
+					}*/
+					
 				}
 				else{
 					cout<<"No hay suficientes datos"<<endl;
@@ -71,7 +79,7 @@ int main(int argc, char const *argv[])//inicio del main
         numeros[i] = NULL;
     }
     numeros.clear();
-
+    delete numero;
     cout<<"Fin del programa"<<endl;
 	return 0;
 }//fin del main
@@ -195,20 +203,88 @@ void Validacion(string num){
 			numeros.push_back(dec);
 		}
 		else{
-			cout<<"El numero no es decimal"<<endl;
+			//cout<<"El numero no es decimal"<<endl;
 		}
 	}
 }
 
 void printVector(){
-if (!numeros.empty())
-{
-	for (int i = 0; i < numeros.size(); ++i)
-	{				
-		cout<<"\nPosicion "<<i<<": "<<numeros[i]->toString()<<endl;
+	if (!numeros.empty())
+	{
+		for (int i = 0; i < numeros.size(); ++i)
+		{				
+			cout<<"\nPosicion "<<i<<": "<<numeros[i]->toString()<<endl;
+		}
+	}
+	else{
+		cout<<"El vector esta vacio"<<endl;
 	}
 }
-else{
-	cout<<"El vector esta vacio"<<endl;
-}
+
+string tipo (int pos){
+	numero=numeros[pos];
+	string num=numero->toString();
+	string tip;
+	int resp=-1;
+	size_t foundbi = num.find("b");
+	size_t foundhex = num.find("0x");
+	size_t foundoc = num.find("0c");
+
+	if (foundbi==num.size()-1)
+	{
+		for (int i = 0; i < num.size(); ++i)
+		{
+			if(num[i]!='0' && num[i]!='1' && num[i] !='b'){
+				resp=2;
+			}
+		}
+		if(resp==-1){
+			tip="Binario";
+			
+		}
+	}
+	
+	if (foundhex==0)
+	{
+		for (int i = 0; i < num.size(); ++i)
+		{
+			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7' && num[i] !='8' && num[i]!='9' && num[i]!='A' && num[i] !='B' && num[i]!='C' && num[i]!='D' && num[i] !='E' && num[i]!='F'&& num[i]!='a' && num[i] !='b' && num[i]!='c' && num[i]!='d' && num[i] !='e' && num[i]!='f' && num[i] !='X' && num[i]!='x'){
+				resp=2;
+			}
+		}
+		if(resp==-1){
+			tip="Hexadecimal";
+			
+		}
+	}
+
+	if (foundoc==0)
+	{
+		for (int i = 0; i < num.size(); ++i)
+		{
+			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7' && num[i]!='C' && num[i]!='c'){
+				resp=2;
+			}
+		}
+		if(resp==-1){
+			tip="Octal";
+			
+		}
+	}
+
+
+	else{
+		for (int i = 0; i < num.size(); ++i)
+		{
+			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7' && num[i]!='8' && num[i]!='9'){
+				resp=2;
+			}
+		}
+		if(resp==-1){
+			tip="Decimal";
+			
+		}
+	}
+	return tip;
+
 }

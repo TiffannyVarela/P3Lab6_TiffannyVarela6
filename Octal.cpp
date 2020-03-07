@@ -29,6 +29,52 @@ int Octal::entero(){
 	return retorno;
 }
 
+/*Numero* Octal::Suma(int num1, int num2){
+	Numero* x;
+	string resultado;
+	int suma=num1+num2;
+	int res, i=1, resp;
+	while(suma!=0){
+		res = suma%8;
+		suma/=8;
+		resp+=res*i;
+		i*=10;
+	}
+	resultado="0c"+to_string(resp);
+	x = new Octal(resultado);
+	return x;
+}
+Numero* Octal::Resta(int num1, int num2){
+	Numero* x;
+	string resultado;
+	int resta=num1-num2;
+	int res, i=1, resp;
+	while(resta!=0){
+		res = resta%8;
+		resta/=8;
+		resp+=res*i;
+		i*=10;
+	}
+	resultado="0c"+to_string(resp);
+	x = new Octal(resultado);
+	return x;
+}
+Numero* Octal::Mult(int num1, int num2){
+	Numero* x;
+	string resultado;
+	int multiplicacion=num1*num2;
+	int res, i=1, resp;
+	while(multiplicacion!=0){
+		res = multiplicacion%8;
+		multiplicacion/=8;
+		resp+=res*i;
+		i*=10;
+	}
+	resultado="0c"+to_string(resp);
+	x = new Octal(resultado);
+	return x;
+}*/
+
 Octal::~Octal(){
 	cout<<"Octal Eliminado"<<endl;
 }
