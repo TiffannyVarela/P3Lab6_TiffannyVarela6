@@ -14,11 +14,13 @@ void Validacion(string);
 	Numero* numero;
 	vector<Numero*> numeros = vector<Numero*>();
 int menuOperaciones();
+void printVector();
 
 int main(int argc, char const *argv[])//inicio del main
 {
 	int opc=0, resp=-4;
 	string num;
+	int pos1,pos2;
 
 	do{//inicio del do while
 
@@ -28,26 +30,32 @@ int main(int argc, char const *argv[])//inicio del main
 				cout<<"Ingrese el numero: ";
 				cin>>num;
 				Validacion(num);
-				//numero = new Numero(num);
-				//numeros.push_back(numero);
 			break;//fin case 1
 
 			case 2://inicio case 2
-				if (!numeros.empty())
-				{
-					for (int i = 0; i < numeros.size(); ++i)
-					{
-							
-							cout<<"Posicion "<<i<<": "<<numeros[i]->toString()<<endl;
-							cout<<"Tipo "<<typeid(numeros[i]).name()<<endl;
-					}
-				}
-				else{
-					cout<<"El vector esta vacio"<<endl;
-				}
+				printVector();
 			break;//fin case 2
 
 			case 3://inicio case 3
+				if (numeros.size()>=2)
+				{
+					printVector();
+					cout<<"\nIngrese la posicion del primer numero: ";
+					cin>>pos1;
+					cout<<"\nIngrese la posicion del segundo numero: ";
+					cin>>pos2;
+					while(pos1<0 || pos1>numeros.size()-1 || pos2<0 || pos2>numeros.size()-1 ){
+						cout<<"\nINGRESE POSICIONES VALIDAS\n"<<endl;
+						printVector();
+						cout<<"\nIngrese la posicion del primer numero: ";
+						cin>>pos1;
+						cout<<"\nIngrese la posicion del segundo numero: ";
+						cin>>pos2;
+					}
+				}
+				else{
+					cout<<"No hay suficientes datos"<<endl;
+				}
 			break;//fin case 3
 
 		}//fin switch
@@ -57,6 +65,14 @@ int main(int argc, char const *argv[])//inicio del main
 
 	}while(resp!=2);//fin del do while
 
+	for (int i = 0; i < numeros.size(); i++)
+    {
+        delete numeros[i];
+        numeros[i] = NULL;
+    }
+    numeros.clear();
+
+    cout<<"Fin del programa"<<endl;
 	return 0;
 }//fin del main
 
@@ -118,8 +134,8 @@ void Validacion(string num){
 			Binario* bin;
 			bin = new Binario(num);
 			numeros.push_back(bin);
-			cout<<"Protected "<<bin->getNumero()<<endl;
-			cout<<"Decimal "<<bin->entero()<<endl;
+			//cout<<"Protected "<<bin->getNumero()<<endl;
+			//cout<<"Decimal "<<bin->entero()<<endl;
 			//cout << bin->toString() <<endl;
 			//cout << numeros[numeros.size()-1]->toString() <<endl;
 			
@@ -133,7 +149,7 @@ void Validacion(string num){
 	{
 		for (int i = 0; i < num.size(); ++i)
 		{
-			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7' && num[i] !='8' && num[i]!='9' && num[i]!='A' && num[i] !='B' && num[i]!='C' && num[i]!='D' && num[i] !='E' && num[i]!='F'){
+			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7' && num[i] !='8' && num[i]!='9' && num[i]!='A' && num[i] !='B' && num[i]!='C' && num[i]!='D' && num[i] !='E' && num[i]!='F'&& num[i]!='a' && num[i] !='b' && num[i]!='c' && num[i]!='d' && num[i] !='e' && num[i]!='f' && num[i] !='X' && num[i]!='x'){
 				resp=2;
 			}
 		}
@@ -151,7 +167,7 @@ void Validacion(string num){
 	{
 		for (int i = 0; i < num.size(); ++i)
 		{
-			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7'){
+			if(num[i]!='0' && num[i]!='1' && num[i] !='2' && num[i]!='3' && num[i]!='4' && num[i] !='5' && num[i]!='6' && num[i]!='7' && num[i]!='C' && num[i]!='c'){
 				resp=2;
 			}
 		}
@@ -182,4 +198,17 @@ void Validacion(string num){
 			cout<<"El numero no es decimal"<<endl;
 		}
 	}
+}
+
+void printVector(){
+if (!numeros.empty())
+{
+	for (int i = 0; i < numeros.size(); ++i)
+	{				
+		cout<<"\nPosicion "<<i<<": "<<numeros[i]->toString()<<endl;
+	}
+}
+else{
+	cout<<"El vector esta vacio"<<endl;
+}
 }
