@@ -15,6 +15,19 @@ string Decimal::toString(){
 	return num;
 }
 
+string Decimal::getNumero(){
+	string numero;
+	numero=num;
+	return numero;
+}
+
+int Decimal::entero(){
+	int retorno;
+	string numero=getNumero();
+	retorno = stoi(numero,nullptr,10);
+	return retorno;
+}
+
 Decimal::~Decimal(){
 	cout<<"Decimal Eliminado"<<endl;
 }

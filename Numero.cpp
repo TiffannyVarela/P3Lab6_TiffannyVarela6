@@ -13,5 +13,9 @@ string Numero::toString(){
 	return " ";
 }
 
+int Numero::entero(){
+	return 0;
+}
+
 Numero::~Numero(){
 }

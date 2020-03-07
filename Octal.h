@@ -10,5 +10,7 @@ public:
 	Octal();
 	Octal(string);
 	string toString();
+	string getNumero();
+	int entero();
 	~Octal();	
 };

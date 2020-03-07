@@ -10,5 +10,8 @@ public:
 	Decimal();
 	Decimal(string);
 	string toString();
+	string getNumero();
+	int entero();
 	~Decimal();	
 };
+

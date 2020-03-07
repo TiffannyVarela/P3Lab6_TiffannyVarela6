@@ -39,6 +39,7 @@ int main(int argc, char const *argv[])//inicio del main
 					{
 							
 							cout<<"Posicion "<<i<<": "<<numeros[i]->toString()<<endl;
+							cout<<"Tipo "<<typeid(numeros[i]).name()<<endl;
 					}
 				}
 				else{
@@ -117,8 +118,10 @@ void Validacion(string num){
 			Binario* bin;
 			bin = new Binario(num);
 			numeros.push_back(bin);
-			cout << bin->toString() <<endl;
-			cout << numeros[numeros.size()-1]->toString() <<endl;
+			cout<<"Protected "<<bin->getNumero()<<endl;
+			cout<<"Decimal "<<bin->entero()<<endl;
+			//cout << bin->toString() <<endl;
+			//cout << numeros[numeros.size()-1]->toString() <<endl;
 			
 		}
 		else{

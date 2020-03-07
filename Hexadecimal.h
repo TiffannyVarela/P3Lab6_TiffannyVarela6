@@ -10,5 +10,7 @@ public:
 	Hexadecimal();
 	Hexadecimal(string);
 	string toString();
+	string getNumero();
+	int entero();
 	~Hexadecimal();	
 };

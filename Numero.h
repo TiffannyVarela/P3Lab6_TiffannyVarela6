@@ -11,6 +11,7 @@ protected:
 	Numero(string);
 public:
 	virtual string toString();
+	virtual int entero();
 	~Numero();
 	
 };
